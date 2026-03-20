@@ -254,7 +254,7 @@ The script is **idempotent** — safe to re-run. It skips existing records and o
 Edit `frontend/js/config.js`:
 ```js
 const CFG = {
-  API_BASE: 'https://localhost:5000/api',  // development
+  API_BASE: window.__API_BASE__ || `${window.location.protocol}//${window.location.host}/api`,  // development
   // API_BASE: 'https://yourdomain.com/api', // production
 };
 ```
@@ -264,7 +264,7 @@ const CFG = {
 ```bash
 cd backend
 gunicorn \
-  --bind 0.0.0.0:5000 \
+  --bind 0.0.0.0:9000 \
   --certfile ../certs/cert.pem \
   --keyfile ../certs/key.pem \
   --workers 4 \
@@ -343,7 +343,7 @@ server {
     
     # Proxy API to Flask/Gunicorn
     location /api/ {
-        proxy_pass http://127.0.0.1:5000;
+        proxy_pass http://127.0.0.1:9000;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
     }
