@@ -5,7 +5,6 @@
 ![Version](https://img.shields.io/badge/version-2.1.0-brightgreen)
 ![Stack](https://img.shields.io/badge/stack-Flask%20%2B%20MySQL%20%2B%20Vanilla%20JS-blue)
 ![Responsive](https://img.shields.io/badge/responsive-mobile%20%2B%20tablet%20%2B%20desktop-success)
-![License](https://img.shields.io/badge/license-MIT-orange)
 
 ---
 
