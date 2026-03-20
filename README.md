@@ -456,8 +456,4 @@ When the backend is unavailable, the frontend automatically serves realistic MOC
 
 ---
 
-## License
-
-MIT License — free to use, modify, and deploy.
-
 Built with ❤️ for public health.
