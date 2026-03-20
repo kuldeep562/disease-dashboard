@@ -59,7 +59,7 @@ cd ../backend && python app.py
 ## Security
 
 If you find a security vulnerability, **do not open a public issue**.  
-Email: dr.kuldeep@bmchealth.in
+Email: solanki.kuldeep@icloud.com
 
 ---
 
