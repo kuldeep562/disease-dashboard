@@ -1,0 +1,204 @@
+                    DISEASE DASHBOARD PROPRIETARY LICENSE
+                           Version 1.0, March 2026
+
+Copyright (c) 2026 Kuldeep Solanki. All Rights Reserved.
+
+Project: Disease Dashboard — Public Health Intelligence Platform
+Author:  Kuldeep Solanki
+Contact: dr.kuldeep@bmchealth.in
+GitHub:  https://github.com/kuldeepsolanki
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+1. DEFINITIONS
+
+   "Software" refers to the Disease Dashboard project, including all source
+   code, documentation, assets, database schemas, seed scripts, and associated
+   files found in this repository.
+
+   "Author" refers to Kuldeep Solanki, the original creator and copyright holder.
+
+   "Personal Use" means use by an individual for private, non-commercial,
+   non-organizational purposes on personal devices only.
+
+   "Non-Commercial Use" means use by non-profit organizations, educational
+   institutions, government health departments, or open-source research
+   projects where no revenue is generated from the Software.
+
+   "Commercial Use" means any use of the Software, or any derivative work
+   based on it, that is intended for or directed toward commercial advantage
+   or monetary compensation. This includes, but is not limited to:
+   - Deploying the Software as a paid product or service
+   - Using the Software internally within a for-profit company
+   - Selling, licensing, or sublicensing the Software or derivatives
+   - Offering consulting, SaaS, or managed services built on the Software
+   - Including the Software in a commercial product
+
+   "Derivative Work" means any work that is based on or derived from the
+   Software, including modifications, adaptations, translations, or works
+   that incorporate substantial portions of the Software.
+
+2. GRANT OF LICENSE — PERSONAL & NON-COMMERCIAL USE
+
+   Subject to the terms of this License, the Author hereby grants you a
+   limited, non-exclusive, non-transferable, royalty-free license to:
+
+   a) Use, copy, and run the Software for Personal Use.
+
+   b) Use, copy, modify, and deploy the Software for Non-Commercial Use,
+      provided that:
+      (i)  You retain this License file in all copies and distributions.
+      (ii) You provide clear and visible attribution to the original Author
+           in any user-facing interface, documentation, or publication:
+
+           REQUIRED ATTRIBUTION TEXT:
+           "Built on Disease Dashboard by Kuldeep Solanki
+            https://github.com/kuldeepsolanki/disease-dashboard"
+
+      (iii) You do NOT remove or obscure any copyright notices, author
+            credits, or attribution text already present in the Software.
+      (iv)  Any Derivative Work you distribute must be released under this
+            same License and must clearly identify what changes you made.
+
+3. COMMERCIAL USE — REQUIRES WRITTEN AGREEMENT AND PAYMENT
+
+   Commercial Use of this Software, in whole or in part, is NOT permitted
+   under this License without a separate written Commercial License Agreement
+   signed by the Author.
+
+   To obtain a Commercial License, you must:
+
+   a) Contact the Author at: dr.kuldeep@bmchealth.in
+   b) Describe your intended commercial use case in writing.
+   c) Agree to and pay the applicable Commercial License Fee as determined
+      by the Author based on the scope and nature of your use.
+
+   Commercial License fees are non-refundable once access has been granted.
+   Attempting to use the Software commercially without a Commercial License
+   is a violation of this License and applicable copyright law.
+
+4. ATTRIBUTION REQUIREMENT (ALL USES)
+
+   Regardless of the type of use, ALL users MUST:
+
+   a) Retain the original copyright notice and this License in all copies.
+
+   b) Display the following attribution in any publicly accessible interface,
+      documentation, README, or About page of any product that uses or
+      incorporates this Software:
+
+      ┌─────────────────────────────────────────────────────────────┐
+      │  Disease Dashboard — Originally created by Kuldeep Solanki  │
+      │  GitHub: https://github.com/kuldeepsolanki/disease-dashboard │
+      └─────────────────────────────────────────────────────────────┘
+
+   c) NOT claim original authorship of the Software or represent it as
+      your own original work.
+
+5. RESTRICTIONS
+
+   You may NOT, under any circumstances:
+
+   a) Remove, alter, or obscure any copyright notices, author credits,
+      license text, or attribution in the Software.
+
+   b) Use the Author's name, project name, or likeness to endorse or
+      promote products derived from this Software without prior written
+      permission.
+
+   c) Patent any component of this Software or claim intellectual property
+      rights over the Software or its architecture.
+
+   d) Sublicense, sell, rent, lease, or transfer this Software or any
+      Commercial License rights to any third party.
+
+   e) Use this Software for any illegal purpose or in violation of any
+      applicable law or regulation.
+
+   f) Distribute the Software as part of a competing health intelligence
+      product without a Commercial License.
+
+6. CONTRIBUTIONS
+
+   If you submit code, documentation, or other contributions to this
+   repository (e.g. via Pull Request), you agree that:
+
+   a) Your contribution is your original work and you have the right to
+      contribute it.
+
+   b) You grant the Author a perpetual, worldwide, royalty-free license to
+      use, modify, and distribute your contribution as part of this Software
+      under any license the Author chooses.
+
+   c) You do not gain any ownership, copyright, or commercial rights over
+      the Software by contributing to it.
+
+7. DISCLAIMER OF WARRANTIES
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+   OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+   The Author makes no warranty that:
+   - The Software will be error-free or uninterrupted
+   - Medical or health data generated is accurate or fit for clinical use
+   - The Software meets your specific requirements
+
+   THIS SOFTWARE IS NOT A CERTIFIED MEDICAL DEVICE AND MUST NOT BE USED
+   AS THE SOLE BASIS FOR CLINICAL DECISIONS OR PATIENT CARE.
+
+8. LIMITATION OF LIABILITY
+
+   IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+   INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING OUT
+   OF THE USE OR INABILITY TO USE THE SOFTWARE, EVEN IF ADVISED OF THE
+   POSSIBILITY OF SUCH DAMAGES.
+
+   The Author's total liability under this License shall not exceed the
+   amount paid (if any) for a Commercial License in the twelve months
+   preceding the claim.
+
+9. TERMINATION
+
+   This License is effective until terminated.
+
+   Your rights under this License will terminate automatically and without
+   notice if you:
+   - Violate any term of this License
+   - Engage in Commercial Use without a valid Commercial License
+   - Remove or alter copyright notices or attribution
+
+   Upon termination you must immediately cease all use of the Software and
+   destroy all copies in your possession.
+
+10. GOVERNING LAW
+
+    This License shall be governed by and construed in accordance with the
+    laws of India. Any disputes arising from this License shall be subject
+    to the exclusive jurisdiction of courts in Mumbai, Maharashtra, India.
+
+11. CONTACT
+
+    For Commercial Licensing inquiries:
+    Email:   dr.kuldeep@bmchealth.in
+    GitHub:  https://github.com/kuldeepsolanki
+
+    For bug reports and non-commercial contributions:
+    GitHub Issues: https://github.com/kuldeepsolanki/disease-dashboard/issues
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SUMMARY (not a substitute for the full license above):
+
+  ✅  Personal use — FREE, attribution required
+  ✅  Non-commercial / educational / government — FREE, attribution required
+  ✅  Modify and share — FREE, must use same license + credit the Author
+  💰  Commercial / for-profit use — requires paid Commercial License
+  ❌  Cannot remove attribution or copyright notices
+  ❌  Cannot claim as your own original work
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Copyright (c) 2026 Kuldeep Solanki. All Rights Reserved.

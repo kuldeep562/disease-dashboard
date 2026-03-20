@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="theme-color" content="#0d1525"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <title>Disease Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css"/>
+  <link rel="stylesheet" href="css/base.css"/>
+  <link rel="stylesheet" href="css/components.css"/>
+  <link rel="stylesheet" href="css/pages.css"/>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginScreen" class="login-screen">
+  <div class="login-bg">
+    <div class="login-orb orb1"></div>
+    <div class="login-orb orb2"></div>
+    <div class="login-orb orb3"></div>
+    <div class="login-grid"></div>
+  </div>
+  <div class="login-card">
+    <div class="login-logo">
+      <div class="login-logo-icon">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="var(--accent)"/><path d="M16 8v16M8 16h16" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <div class="login-logo-name">Disease Dashboard</div>
+        <div class="login-logo-sub">Public Health Intelligence Platform</div>
+      </div>
+    </div>
+    <h2 class="login-title">Sign in to continue</h2>
+    <p class="login-desc">Access disease surveillance &amp; NCD programme reporting</p>
+    <div class="login-form">
+      <div class="field-group">
+        <label class="field-label">Username or Email</label>
+        <input type="text" class="field-input" id="loginUser" placeholder="kuldeep" autocomplete="username"/>
+        <span class="field-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Password</label>
+        <input type="password" class="field-input" id="loginPass" placeholder="••••••••" autocomplete="current-password"/>
+        <span class="field-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>
+        <button class="pw-toggle" id="pwToggle" type="button" tabindex="-1">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
+      <div class="login-row">
+        <label class="checkbox-label"><input type="checkbox" id="rememberMe"/> Remember me</label>
+        <a href="#" class="login-link">Forgot password?</a>
+      </div>
+      <div class="login-error" id="loginError"></div>
+      <button class="btn-login" id="loginBtn" type="button">
+        <span id="loginBtnText">Sign In</span>
+        <div class="btn-spinner" id="loginSpinner"></div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- APP SHELL -->
+<div id="appShell" class="app-shell hidden">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo" id="logoLink" role="button" tabindex="0">
+        <span class="logo-collapsed-initials">DD</span>
+        <div class="logo-text">
+          <span class="logo-name">Disease Dashboard</span>
+          <span class="logo-sub">Health Intelligence</span>
+        </div>
+      </div>
+      <button class="sidebar-pin" id="sidebarPin" title="Collapse">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>
+    <div class="sidebar-search">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" placeholder="Search pages..." id="navSearch"/>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <span class="nav-label">Overview</span>
+        <a class="nav-link active" data-page="dashboard" href="#"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Dashboard</span><div class="nav-badge live">Live</div></a>
+        <a class="nav-link" data-page="ncd" href="#"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span>NCD Programme</span></a>
+        <a class="nav-link" data-page="surveillance" href="#"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>Surveillance</span><div class="nav-badge alert">7</div></a>
+      </div>
+      <div class="nav-section">
+        <span class="nav-label">Reports</span>
+        <a class="nav-link" data-page="hotspots" href="#"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Hotspot Map</span></a>
+        <a class="nav-link" data-page="facilities" href="#"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg><span>Facilities</span></a>
+        <a class="nav-link" data-page="patients" href="#"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg><span>Patients</span></a>
+      </div>
+      <div class="nav-section">
+        <span class="nav-label">Admin</span>
+        <a class="nav-link" data-page="settings" href="#"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M12 2v2M12 20v2M2 12h2M20 12h2M19.07 19.07l-1.41-1.41M4.93 19.07l1.41-1.41"/></svg><span>Settings</span></a>
+      </div>
+    </nav>
+    <div class="sidebar-user">
+      <div class="user-avatar" id="userAvatar">DR</div>
+      <div class="user-info"><span class="user-name" id="userName">Loading...</span><span class="user-role" id="userRole">Admin</span></div>
+      <button class="user-logout" id="logoutBtn" title="Sign out"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></button>
+    </div>
+  </aside>
+
+  <div class="main-wrap" id="mainWrap">
+    <header class="topnav">
+      <div class="topnav-left">
+        <button class="burger" id="burgerBtn"><span></span><span></span><span></span></button>
+        <nav class="breadcrumb"><span>Disease Dashboard</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg><span id="bcPage">Dashboard</span></nav>
+      </div>
+      <div class="topnav-right">
+        <div class="topnav-filters" id="topnavFilters">
+          <select class="tn-select" id="globalZone"><option value="">All Zones</option><option>North Zone</option><option>South Zone</option><option>East Zone</option><option>West Zone</option><option>Central Zone</option></select>
+          <!-- Period filter — replaced with smart date picker -->
+          <div style="position:relative" id="periodPickerWrap">
+            <button class="tn-select" id="periodPickerBtn" style="cursor:pointer;display:flex;align-items:center;gap:6px;min-width:148px;justify-content:space-between">
+              <span id="periodPickerLabel">This Month</span>
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div id="periodPanel" style="display:none;position:absolute;top:calc(100% + 6px);right:0;z-index:500;background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);box-shadow:var(--shadow-lg);width:280px;padding:12px">
+              <!-- Preset options -->
+              <div style="font-size:.68rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Presets</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:12px" id="periodPresets">
+                <button class="period-preset active" data-period="This Month"   data-from="" data-to="">This Month</button>
+                <button class="period-preset" data-period="Last Month"    data-from="" data-to="">Last Month</button>
+                <button class="period-preset" data-period="Last 3 Months" data-from="" data-to="">Last 3 Months</button>
+                <button class="period-preset" data-period="Last 6 Months" data-from="" data-to="">Last 6 Months</button>
+                <button class="period-preset" data-period="This Year"     data-from="" data-to="">This Year</button>
+                <button class="period-preset" data-period="Last Year"     data-from="" data-to="">Last Year</button>
+                <button class="period-preset" data-period="All Time"      data-from="" data-to="">All Time</button>
+                <button class="period-preset" data-period="Last 7 Days"   data-from="" data-to="">Last 7 Days</button>
+              </div>
+              <!-- Custom range -->
+              <div style="font-size:.68rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;padding-top:10px;border-top:1px solid var(--border)">Custom Range</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
+                <div>
+                  <label style="font-size:.72rem;color:var(--text3);display:block;margin-bottom:3px">From</label>
+                  <input type="date" id="customDateFrom" class="field-input-sm" style="width:100%;font-size:.78rem;padding:5px 8px"/>
+                </div>
+                <div>
+                  <label style="font-size:.72rem;color:var(--text3);display:block;margin-bottom:3px">To</label>
+                  <input type="date" id="customDateTo" class="field-input-sm" style="width:100%;font-size:.78rem;padding:5px 8px"/>
+                </div>
+              </div>
+              <button class="btn btn-primary btn-sm" id="applyCustomDate" style="width:100%;justify-content:center">Apply Custom Range</button>
+            </div>
+          </div>
+        </div>
+        <div class="topnav-actions">
+          <button class="tn-icon-btn" id="themeToggleBtn" title="Toggle theme">
+            <svg id="themeIconSun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg id="themeIconMoon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </button>
+          <button class="tn-icon-btn" id="refreshBtn" title="Refresh"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg></button>
+          <button class="tn-icon-btn has-notif" id="notifBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></button>
+          <button class="btn-export-sm" id="globalExport"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Export</button>
+        </div>
+      </div>
+    </header>
+    <main class="page-area" id="pageArea"></main>
+  </div>
+</div>
+
+<!-- LOGOUT MODAL -->
+<div class="modal-backdrop" id="logoutModal" style="display:none">
+  <div class="modal-box">
+    <div class="modal-scrollable-body" style="padding-top:24px">
+      <div class="modal-icon-wrap modal-icon-warn">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      </div>
+      <h3 class="modal-title">Sign Out</h3>
+      <p class="modal-desc">Are you sure you want to sign out of Disease Dashboard?</p>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" id="logoutCancel">Cancel</button>
+        <button class="btn btn-danger" id="logoutConfirm">Yes, Sign Out</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FACILITY DETAIL MODAL -->
+<div class="modal-backdrop" id="facilityModal" style="display:none">
+  <div class="modal-box modal-box-xl">
+    <div class="modal-sticky-header">
+      <button class="modal-close-btn" id="facilityModalClose">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="facilityModalBody" class="modal-scrollable-body">Loading...</div>
+  </div>
+</div>
+
+<!-- USER EDIT MODAL -->
+<div class="modal-backdrop" id="userEditModal" style="display:none">
+  <div class="modal-box">
+    <div class="modal-scrollable-body" style="padding-top:24px">
+      <h3 class="modal-title" id="userEditTitle">Edit User</h3>
+      <div id="userEditBody" style="margin:16px 0"></div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" id="userEditCancel">Cancel</button>
+        <button class="btn btn-primary" id="userEditSave">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast-stack" id="toastStack"></div>
+
+<!-- NOTIFICATION PANEL -->
+<div class="notif-panel" id="notifPanel">
+  <div class="notif-header"><span>Alerts &amp; Notifications</span><button class="notif-close" id="notifClose">×</button></div>
+  <div class="notif-list" id="notifList"></div>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/router.js"></script>
+<script src="js/components/toast.js"></script>
+<script src="js/components/charts.js"></script>
+<script src="js/components/table.js"></script>
+<script src="js/pages/dashboard.js"></script>
+<script src="js/pages/ncd.js"></script>
+<script src="js/pages/surveillance.js"></script>
+<script src="js/pages/hotspots.js"></script>
+<script src="js/pages/facilities.js"></script>
+<script src="js/pages/patients.js"></script>
+<script src="js/pages/settings.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
