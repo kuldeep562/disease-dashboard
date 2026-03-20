@@ -178,7 +178,7 @@ cd backend
 python app.py
 ```
 
-Open: **https://localhost:5000** (accept self-signed certificate warning)
+Open: **https://localhost:9000** (accept self-signed certificate warning)
 
 ---
 
